@@ -1,0 +1,109 @@
+<main class="results-container">
+
+  <section class="search-header">
+    <form class="search-bar-inline" (ngSubmit)="onSearchSubmit()">
+      <div class="input-container">
+        <span class="inline-icon">🔍</span>
+        <input
+          type="text"
+          name="inlineQuery"
+          [(ngModel)]="searchQuery"
+          placeholder="¿Qué película o serie buscas?">
+      </div>
+      <button type="submit" class="btn-inline-search">Buscar</button>
+    </form>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="result-block" *ngIf="activeResult">
+    <h3 class="block-title">RESULTADO</h3>
+
+    <div class="result-card-layout">
+      <div class="media-cover-placeholder">
+        <div class="wireframe-cross">
+          <span class="placeholder-text">Imagen / Portada</span>
+        </div>
+      </div>
+
+      <div class="media-details">
+        <h4 class="media-title">{{ activeResult.title }}</h4>
+        <span class="media-badge">{{ activeResult.type }}</span>
+
+        <div class="metadata-rows">
+          <p class="meta-item"><strong>Año:</strong> {{ activeResult.year }}</p>
+          <p class="meta-item"><strong>Duración:</strong> {{ activeResult.duration }}</p>
+          <p class="meta-item"><strong>Género:</strong> {{ activeResult.genres.join(', ') }}</p>
+        </div>
+
+        <p class="media-synopsis">
+          {{ activeResult.synopsis }}
+        </p>
+      </div>
+
+      <div class="streaming-platforms-panel">
+        <h5 class="panel-subtitle">Disponible en plataformas legales:</h5>
+
+        <div class="platforms-list">
+          <div class="platform-row" *ngFor="let platform of activeResult.availablePlatforms">
+            <div class="platform-identity">
+              <div class="platform-logo-mock">{{ platform.logoLetters }}</div>
+              <span class="platform-name">{{ platform.name }}</span>
+              <span class="lock-indicator" *ngIf="platform.requiresSubscription" title="Requiere suscripción activa">🔒</span>
+            </div>
+            <a [href]="platform.directLink" target="_blank" rel="noopener noreferrer" class="btn-redirect">
+              Ir
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="result-block empty-state" *ngIf="hasSearched && !activeResult">
+    <h3 class="block-title">INFORMACIÓN DE DISPONIBILIDAD</h3>
+    <div class="alert-box">
+      <p class="alert-message">
+        ⚠️ <strong>Contenido no disponible:</strong> El título buscado no se localizó en los catálogos legales indexados para tu región actual o cuenta con restricciones territoriales de distribución.
+      </p>
+      <p class="alert-solution">
+        Evita buscar en sitios web desconocidos o de origen dudoso para proteger tu dispositivo. Te sugerimos revisar las opciones legales disponibles abajo.
+      </p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="alternatives-block">
+    <h3 class="block-title">ALTERNATIVAS LEGALES SIMILARES</h3>
+
+    <div class="alternatives-grid">
+      <div class="alternative-card"
+           *ngFor="let alt of alternativeContents"
+           (click)="viewAlternative(alt.title)">
+        <div class="alt-thumbnail-placeholder">
+          <div class="wireframe-cross"></div>
+        </div>
+        <h4 class="alt-title">{{ alt.title }}</h4>
+        <span class="alt-badge">{{ alt.type }}</span>
+      </div>
+
+      <div class="alternative-card" *ngIf="alternativeContents.length === 0" (click)="viewAlternative('Avatar')">
+        <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
+        <h4 class="alt-title">Avatar: El Camino del Agua</h4>
+        <span class="alt-badge">Película</span>
+      </div>
+      <div class="alternative-card" *ngIf="alternativeContents.length === 0" (click)="viewAlternative('El Señor de los Anillos')">
+        <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
+        <h4 class="alt-title">El Señor de los Anillos</h4>
+        <span class="alt-badge">Película</span>
+      </div>
+      <div class="alternative-card" *ngIf="alternativeContents.length === 0" (click)="viewAlternative('Dune')">
+        <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
+        <h4 class="alt-title">Dune</h4>
+        <span class="alt-badge">Película</span>
+      </div>
+    </div>
+  </section>
+
+</main>

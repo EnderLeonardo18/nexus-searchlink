@@ -1,0 +1,19 @@
+.footer-container {
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin-top: auto;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #666666;
+}
+
+.academic-note {
+  font-size: 11px !important;
+  color: #999999 !important;
+}

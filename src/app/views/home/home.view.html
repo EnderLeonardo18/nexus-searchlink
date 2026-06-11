@@ -1,0 +1,33 @@
+<main class="home-wrapper">
+  <div class="hero-section">
+    <div class="emblem-container">
+      <div class="emblem-circle">
+        <span class="emblem-text">N</span>
+        <span class="lens-handle"></span>
+      </div>
+    </div>
+
+    <h2 class="hero-title">NEXUS</h2>
+    <p class="hero-tagline">SEARCHLINK</p>
+
+    <p class="hero-description">
+      Encuentra automáticamente dónde está disponible tu película o serie en plataformas de streaming legales.
+    </p>
+  </div>
+
+  <form class="search-form" (ngSubmit)="onSearch()">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        name="query"
+        [(ngModel)]="searchQuery"
+        placeholder="¿Qué película o serie buscas?"
+        autocomplete="off"
+        required>
+      <button type="submit" class="btn-search">Buscar</button>
+    </div>
+  </form>
+
+  <p class="info-footer-text">Una búsqueda. Múltiples plataformas. Resultados en segundos.</p>
+</main>
