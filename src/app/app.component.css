@@ -1,12 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 .app-layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ocupa el 100% de la ventana del navegador */
-  background-color: #ffffff;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 30% 20%, #0F0718 0%, #080312 50%, #05020A 100%);
+  position: relative;
+}
+
+/* Capa de textura de ruido cinematográfico */
+.app-layout::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 15% 30%, rgba(168, 85, 247, 0.25), transparent),
+    radial-gradient(2px 2px at 75% 60%, rgba(192, 132, 252, 0.2), transparent),
+    radial-gradient(1px 1px at 90% 20%, rgba(124, 58, 237, 0.3), transparent);
+  background-repeat: no-repeat;
+  background-size: 250px 250px, 350px 350px, 200px 200px;
+  pointer-events: none;
+  z-index: 0;
+  animation: starTwinkle 10s ease-in-out infinite;
+}
+
+/* Capa de brillo neón ambiental */
+.app-layout::after {
+  content: "";
+  position: fixed;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle at 40% 50%, rgba(124, 58, 237, 0.1), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  animation: auroraGlow 18s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes auroraGlow {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translate(3%, 5%) scale(1.03);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translate(-2%, 3%) scale(0.98);
+    opacity: 0.5;
+  }
 }
 
 .app-main-content {
-  flex: 1; /* Absorbe todo el espacio disponible empujando el footer al fondo */
+  flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 }

@@ -1,19 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 .footer-container {
-  background-color: #ffffff;
-  border-top: 1px solid #e0e0e0;
-  padding: 20px;
+  background: rgba(8, 3, 18, 0.85);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid #7C3AED;
+  padding: 24px 20px;
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Space Grotesk', 'Arial', sans-serif;
   margin-top: auto;
+  position: relative;
+  z-index: 5;
 }
 
 .footer-content p {
-  margin: 5px 0;
+  margin: 6px 0;
   font-size: 13px;
-  color: #666666;
+  color: #fdfdfd;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 .academic-note {
   font-size: 11px !important;
-  color: #999999 !important;
+  color: #ffffff !important;
+  font-style: italic;
 }

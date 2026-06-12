@@ -72,15 +72,12 @@
     </div>
   </section>
 
-<hr class="section-divider">
+  <hr class="section-divider">
 
-  <!-- SECCIÓN INFERIOR: ALTERNATIVAS LEGALES SIMILARES -->
   <section class="alternatives-block">
     <h3 class="block-title">ALTERNATIVAS LEGALES SIMILARES</h3>
 
     <div class="alternatives-grid">
-
-      <!-- ESCENARIO A: Si hay alternativas vinculadas al resultado, las recorremos dinámicamente -->
       <ng-container *ngIf="alternativeContents.length > 0">
         <div class="alternative-card"
              *ngFor="let alt of alternativeContents"
@@ -93,7 +90,6 @@
         </div>
       </ng-container>
 
-      <!-- ESCENARIO B: Si la búsqueda falló, muestra opciones variadas fijas del catálogo extendido -->
       <ng-container *ngIf="alternativeContents.length === 0">
         <div class="alternative-card" (click)="viewAlternative('Interestelar')">
           <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
@@ -113,7 +109,6 @@
           <span class="alt-badge">Película</span>
         </div>
       </ng-container>
-
     </div>
   </section>
 

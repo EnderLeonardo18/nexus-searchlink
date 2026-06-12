@@ -66,3 +66,13 @@ searchQuery: string = '';
     });
   }
 }
+
+// ===== ADICIÓN: FUNCIÓN SCROLL TO TOP =====
+export class ResultsComponent {
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+}
