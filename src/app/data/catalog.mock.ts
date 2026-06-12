@@ -1,6 +1,5 @@
 import { MediaContent } from '../models/media.model';
 
-// Catálogo simulado centrado en la utilidad y en evitar búsquedas externas[cite: 6]
 export const CATALOG_MOCK: MediaContent[] = [
   {
     id: 'avatar-2009',
@@ -15,7 +14,7 @@ export const CATALOG_MOCK: MediaContent[] = [
       { name: 'Prime Video', logoLetters: 'P', directLink: 'https://www.primevideo.com', requiresSubscription: true },
       { name: 'Disney+', logoLetters: 'D+', directLink: 'https://www.disneyplus.com', requiresSubscription: true }
     ],
-    alternatives: ['avatar-water', 'lord-rings', 'dune']
+    alternatives: ['avatar-water', 'interstellar', 'dune']
   },
   {
     id: 'avatar-water',
@@ -28,7 +27,7 @@ export const CATALOG_MOCK: MediaContent[] = [
     availablePlatforms: [
       { name: 'Disney+', logoLetters: 'D+', directLink: 'https://www.disneyplus.com', requiresSubscription: true }
     ],
-    alternatives: ['avatar-2009', 'dune']
+    alternatives: ['avatar-2009', 'interstellar', 'blade-runner']
   },
   {
     id: 'lord-rings',
@@ -41,7 +40,7 @@ export const CATALOG_MOCK: MediaContent[] = [
     availablePlatforms: [
       { name: 'Prime Video', logoLetters: 'P', directLink: 'https://www.primevideo.com', requiresSubscription: true }
     ],
-    alternatives: ['avatar-2009', 'dune']
+    alternatives: ['dune', 'the-batman']
   },
   {
     id: 'dune',
@@ -55,6 +54,46 @@ export const CATALOG_MOCK: MediaContent[] = [
       { name: 'Netflix', logoLetters: 'N', directLink: 'https://www.netflix.com', requiresSubscription: true },
       { name: 'Prime Video', logoLetters: 'P', directLink: 'https://www.primevideo.com', requiresSubscription: true }
     ],
-    alternatives: ['avatar-2009', 'lord-rings']
+    alternatives: ['interstellar', 'blade-runner', 'avatar-2009']
+  },
+  {
+    id: 'interstellar',
+    title: 'Interestelar',
+    type: 'Película',
+    year: 2014,
+    duration: '2h 49m',
+    genres: ['Ciencia ficción', 'Drama'],
+    synopsis: 'Un grupo de científicos y exploradores viaja a través de un agujero de gusano en el espacio para encontrar un nuevo hogar para la humanidad.',
+    availablePlatforms: [
+      { name: 'Netflix', logoLetters: 'N', directLink: 'https://www.netflix.com', requiresSubscription: true },
+      { name: 'Prime Video', logoLetters: 'P', directLink: 'https://www.primevideo.com', requiresSubscription: true }
+    ],
+    alternatives: ['dune', 'blade-runner', 'avatar-2009']
+  },
+  {
+    id: 'blade-runner',
+    title: 'Blade Runner 2049',
+    type: 'Película',
+    year: 2017,
+    duration: '2h 44m',
+    genres: ['Ciencia ficción', 'Acción'],
+    synopsis: 'Un nuevo blade runner, el oficial K del departamento de policía de Los Ángeles, descubre un secreto enterrado que podría sumergir a la sociedad en el caos.',
+    availablePlatforms: [
+      { name: 'Netflix', logoLetters: 'N', directLink: 'https://www.netflix.com', requiresSubscription: true }
+    ],
+    alternatives: ['dune', 'interstellar', 'the-batman']
+  },
+  {
+    id: 'the-batman',
+    title: 'The Batman',
+    type: 'Película',
+    year: 2022,
+    duration: '2h 56m',
+    genres: ['Acción', 'Crimen', 'Drama'],
+    synopsis: 'Cuando un asesino se dirige a la élite de Gotham con una serie de maquinaciones sádicas, el mejor detective del mundo es enviado a investigar.',
+    availablePlatforms: [
+      { name: 'Prime Video', logoLetters: 'P', directLink: 'https://www.primevideo.com', requiresSubscription: true }
+    ],
+    alternatives: ['blade-runner', 'lord-rings']
   }
 ];

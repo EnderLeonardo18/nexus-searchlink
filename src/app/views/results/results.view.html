@@ -72,37 +72,48 @@
     </div>
   </section>
 
-  <hr class="section-divider">
+<hr class="section-divider">
 
+  <!-- SECCIÓN INFERIOR: ALTERNATIVAS LEGALES SIMILARES -->
   <section class="alternatives-block">
     <h3 class="block-title">ALTERNATIVAS LEGALES SIMILARES</h3>
 
     <div class="alternatives-grid">
-      <div class="alternative-card"
-           *ngFor="let alt of alternativeContents"
-           (click)="viewAlternative(alt.title)">
-        <div class="alt-thumbnail-placeholder">
-          <div class="wireframe-cross"></div>
-        </div>
-        <h4 class="alt-title">{{ alt.title }}</h4>
-        <span class="alt-badge">{{ alt.type }}</span>
-      </div>
 
-      <div class="alternative-card" *ngIf="alternativeContents.length === 0" (click)="viewAlternative('Avatar')">
-        <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
-        <h4 class="alt-title">Avatar: El Camino del Agua</h4>
-        <span class="alt-badge">Película</span>
-      </div>
-      <div class="alternative-card" *ngIf="alternativeContents.length === 0" (click)="viewAlternative('El Señor de los Anillos')">
-        <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
-        <h4 class="alt-title">El Señor de los Anillos</h4>
-        <span class="alt-badge">Película</span>
-      </div>
-      <div class="alternative-card" *ngIf="alternativeContents.length === 0" (click)="viewAlternative('Dune')">
-        <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
-        <h4 class="alt-title">Dune</h4>
-        <span class="alt-badge">Película</span>
-      </div>
+      <!-- ESCENARIO A: Si hay alternativas vinculadas al resultado, las recorremos dinámicamente -->
+      <ng-container *ngIf="alternativeContents.length > 0">
+        <div class="alternative-card"
+             *ngFor="let alt of alternativeContents"
+             (click)="viewAlternative(alt.title)">
+          <div class="alt-thumbnail-placeholder">
+            <div class="wireframe-cross"></div>
+          </div>
+          <h4 class="alt-title">{{ alt.title }}</h4>
+          <span class="alt-badge">{{ alt.type }}</span>
+        </div>
+      </ng-container>
+
+      <!-- ESCENARIO B: Si la búsqueda falló, muestra opciones variadas fijas del catálogo extendido -->
+      <ng-container *ngIf="alternativeContents.length === 0">
+        <div class="alternative-card" (click)="viewAlternative('Interestelar')">
+          <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
+          <h4 class="alt-title">Interestelar</h4>
+          <span class="alt-badge">Película</span>
+        </div>
+
+        <div class="alternative-card" (click)="viewAlternative('Blade Runner 2049')">
+          <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
+          <h4 class="alt-title">Blade Runner 2049</h4>
+          <span class="alt-badge">Película</span>
+        </div>
+
+        <div class="alternative-card" (click)="viewAlternative('The Batman')">
+          <div class="alt-thumbnail-placeholder"><div class="wireframe-cross"></div></div>
+          <h4 class="alt-title">The Batman</h4>
+          <span class="alt-badge">Película</span>
+        </div>
+      </ng-container>
+
     </div>
   </section>
 
