@@ -10,6 +10,279 @@
   z-index: 2;
 }
 
+/* Contenedor principal ensanchado que aloja el resultado inteligente */
+.search-metrics-bar {
+  max-width: 1200px; /* Igualado al ancho máximo del contenedor principal results-container */
+  margin: 0 auto 25px auto;
+  padding: 18px 24px;
+  background: rgba(124, 58, 237, 0.08); /* Mantiene tu color base purpura sutil */
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-left: 5px solid #C084FC; /* Detalle de color en el borde izquierdo */
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between; /* Empuja el resultado técnico a la extrema derecha */
+  align-items: center;
+  gap: 20px;
+}
+
+/* Distribución del bloque izquierdo */
+.metrics-left-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.metrics-status-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(192, 132, 252, 0.2);
+  border: 1px solid #C084FC;
+  color: #D8B4FE;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.metrics-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metrics-main-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.metrics-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #B9B0D4;
+  line-height: 1.4;
+}
+
+/* Bloque derecho alineado al extremo */
+.metrics-right-results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 24px;
+  border-left: 1px solid rgba(124, 58, 237, 0.3);
+  min-width: 220px;
+}
+
+.results-header-title {
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #C084FC;
+}
+
+.results-data-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.result-row-item {
+  margin: 0;
+  font-size: 13px;
+  color: #C4B5FD;
+}
+
+.result-row-item strong {
+  color: #D8B4FE;
+}
+
+.highlight-val {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* Resalte verde para el indicador numérico de tiempo tal como en tu boceto */
+.font-green {
+  color: #4ADE80 !important;
+  font-weight: 600;
+}
+
+/* Responsive: Ajuste si la pantalla se reduce demasiado */
+@media (max-width: 768px) {
+  .search-metrics-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .metrics-right-results {
+    border-left: none;
+    border-top: 1px solid rgba(124, 58, 237, 0.3);
+    padding-left: 0;
+    padding-top: 12px;
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   ESTILOS PARA EL ESCENARIO DE CONTENIDO NO DISPONIBLE (ALTA FIDELIDAD)
+   ========================================================================== */
+
+.not-available-block {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Banner de restricción con color verde/esmeralda sutil de fondo */
+.restriction-status-banner {
+  padding: 20px 24px;
+  background: rgba(16, 185, 129, 0.06); /* Fondo verde sutil transparente */
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-left: 5px solid #10B981; /* Borde sólido verde esmeralda */
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.restriction-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.alert-icon-circle {
+  width: 34px;
+  height: 34px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10B981;
+  color: #34D399;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.restriction-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.restriction-main-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #34D399; /* Texto del título en verde */
+  text-transform: uppercase;
+}
+
+.restriction-subtitle {
+  margin: 0;
+  font-size: 13.5px;
+  color: #B9B0D4;
+  line-height: 1.4;
+}
+
+.restriction-right-badge .status-badge-text {
+  background: rgba(239, 68, 68, 0.15); /* Badge de aviso secundario */
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #F87171;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 6px;
+}
+
+/* Caja inferior de países permitidos */
+.allowed-countries-box {
+  background: rgba(26, 15, 42, 0.4);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 14px;
+  padding: 22px 24px;
+}
+
+.countries-section-title {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #C084FC;
+}
+
+.countries-description {
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  color: #94A3B8;
+}
+
+/* Contenedor Flex para las banderas y etiquetas de países */
+.countries-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.country-tag {
+  background: rgba(15, 7, 27, 0.8);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.country-tag:hover {
+  border-color: #10B981; /* Se ilumina en verde al pasar el mouse por encima */
+}
+
+.country-flag {
+  font-size: 16px;
+}
+
+.country-name {
+  font-size: 13px;
+  color: #E2E8F0;
+  font-weight: 500;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste responsive para celulares */
+@media (max-width: 768px) {
+  .restriction-status-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .restriction-right-badge {
+    align-self: flex-start;
+  }
+}
+
+
 .search-header {
   margin-bottom: 20px;
 }

@@ -16,6 +16,80 @@
 
   <hr class="section-divider">
 
+  <!-- NUEVA: Barra de Métricas de Consulta (Solo se muestra si hubo una búsqueda) -->
+<!-- NUEVA BARRA ESTILO INDICADOR DE ALTA FIDELIDAD -->
+  <div class="search-metrics-bar" *ngIf="hasSearched">
+
+    <!-- Bloque Izquierdo: Título y Contexto -->
+    <div class="metrics-left-content">
+      <div class="metrics-status-icon">✓</div>
+      <div class="metrics-title-group">
+        <h4 class="metrics-main-title">RESULTADO INTELIGENTE NEXUS</h4>
+        <p class="metrics-subtitle">
+          Nexus analizó automáticamente los catálogos regionales e indexaciones legales para localizar este contenido por ti.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bloque Derecho: Resultados de Búsqueda alineados a la derecha -->
+    <div class="metrics-right-results">
+      <h5 class="results-header-title">BÚSQUEDA COMPLETADA</h5>
+      <div class="results-data-rows">
+        <p class="result-row-item">
+          <strong>Plataformas: </strong>
+          <span class="highlight-val">{{ activeResult ? platformCount : '8' }} consultadas</span>
+        </p>
+        <p class="result-row-item">
+          <strong>Tiempo: </strong>
+          <span class="highlight-val font-green">{{ searchTime }} ms</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRA DE VISTA EN CASO QUE NO ESTE DIPONIBLE -->
+  <section class="not-available-block" *ngIf="hasSearched && !activeResult">
+
+    <div class="restriction-status-banner">
+      <div class="restriction-left">
+        <div class="alert-icon-circle">!</div>
+        <div class="restriction-title-group">
+          <h4 class="restriction-main-title">NO DISPONIBLE EN TU REGIÓN</h4>
+          <p class="restriction-subtitle">
+            Este contenido no se encuentra en los catálogos legales indexados para Venezuela debido a restricciones de distribución territorial o licencias de transmisión de la productora.
+          </p>
+        </div>
+      </div>
+      <div class="restriction-right-badge">
+        <span class="status-badge-text">RESTRICCIÓN GEOGRÁFICA</span>
+      </div>
+    </div>
+
+    <div class="allowed-countries-box">
+      <h4 class="countries-section-title">PAÍSES LEGALMENTE DISPONIBLES</h4>
+      <p class="countries-description">El contenido se encuentra activo en los servidores oficiales de las siguientes regiones globales:</p>
+
+      <div class="countries-tags-container">
+        <div class="country-tag">
+          <span class="country-flag">🇺🇸</span> <span class="country-name">Estados Unidos</span>
+        </div>
+        <div class="country-tag">
+          <span class="country-flag">🇪🇸</span> <span class="country-name">España</span>
+        </div>
+        <div class="country-tag">
+          <span class="country-flag">🇲🇽</span> <span class="country-name">México</span>
+        </div>
+        <div class="country-tag">
+          <span class="country-flag">🇦🇷</span> <span class="country-name">Argentina</span>
+        </div>
+        <div class="country-tag">
+          <span class="country-flag">🇨🇱</span> <span class="country-name">Chile</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
   <section class="result-block" *ngIf="activeResult">
     <h3 class="block-title">RESULTADO</h3>
 
@@ -60,7 +134,7 @@
     </div>
   </section>
 
-  <section class="result-block empty-state" *ngIf="hasSearched && !activeResult">
+  <!-- <section class="result-block empty-state" *ngIf="hasSearched && !activeResult">
     <h3 class="block-title">INFORMACIÓN DE DISPONIBILIDAD</h3>
     <div class="alert-box">
       <p class="alert-message">
@@ -70,7 +144,7 @@
         Evita buscar en sitios web desconocidos o de origen dudoso para proteger tu dispositivo. Te sugerimos revisar las opciones legales disponibles abajo.
       </p>
     </div>
-  </section>
+  </section> -->
 
   <hr class="section-divider">
 
