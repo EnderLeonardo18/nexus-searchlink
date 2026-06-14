@@ -24,9 +24,10 @@
     <div class="metrics-left-content">
       <div class="metrics-status-icon">✓</div>
       <div class="metrics-title-group">
-        <h4 class="metrics-main-title">RESULTADO INTELIGENTE NEXUS</h4>
+        <h4 class="metrics-main-title">Contenido localizado, en vez de resultado inteligente Nexus
+</h4>
         <p class="metrics-subtitle">
-          Nexus analizó automáticamente los catálogos regionales e indexaciones legales para localizar este contenido por ti.
+          Contenido Localizado
         </p>
       </div>
     </div>
@@ -54,9 +55,9 @@
       <div class="restriction-left">
         <div class="alert-icon-circle">!</div>
         <div class="restriction-title-group">
-          <h4 class="restriction-main-title">NO DISPONIBLE EN TU REGIÓN</h4>
+          <h4 class="restriction-main-title">Este contenido no está incluido actualmente en los catálogos disponibles para Venezuela. </h4>
           <p class="restriction-subtitle">
-            Este contenido no se encuentra en los catálogos legales indexados para Venezuela debido a restricciones de distribución territorial o licencias de transmisión de la productora.
+            Las plataformas pueden tener diferentes disponibilidad según el país
           </p>
         </div>
       </div>
@@ -111,6 +112,7 @@
         </div>
 
         <p class="media-synopsis">
+          <p>Sinopsis:<p>
           {{ activeResult.synopsis }}
         </p>
       </div>
@@ -126,7 +128,7 @@
               <span class="lock-indicator" *ngIf="platform.requiresSubscription" title="Requiere suscripción activa">🔒</span>
             </div>
             <a [href]="platform.directLink" target="_blank" rel="noopener noreferrer" class="btn-redirect">
-              Ir
+              Ver
             </a>
           </div>
         </div>
